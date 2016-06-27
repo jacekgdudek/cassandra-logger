@@ -57,7 +57,7 @@ public class LogEntry {
         return updatedColumns;
     }
 
-    public void setUpdatedColumns(Map<String, String> updatedColumns2) {
+    public void setUpdatedColumns(Map<String, String> updatedColumns) {
         this.updatedColumns = updatedColumns;
     }
     
