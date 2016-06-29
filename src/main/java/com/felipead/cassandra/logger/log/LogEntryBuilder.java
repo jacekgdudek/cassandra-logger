@@ -7,6 +7,7 @@ import org.apache.cassandra.utils.UUIDGen;
 import java.nio.ByteBuffer;
 import java.util.Collection;
 import java.util.Set;
+import java.util.Map;
 import java.util.UUID;
 
 public class LogEntryBuilder {
@@ -31,12 +32,12 @@ public class LogEntryBuilder {
             logEntry.setOperation(Operation.save);
         }
 
-        Set<String> cellNames = ColumnFamilyUtil.getCellNames(update);
+        Map<String, String> updatedCells = ColumnFamilyUtil.getCellMap(update);
         if (this.ignoreColumns != null) {
-            cellNames.removeAll(this.ignoreColumns);
+            updatedCells.keySet().removeAll(this.ignoreColumns);
         }
         
-        logEntry.setUpdatedColumns(cellNames);
+        logEntry.setUpdatedColumns(updatedCells);
         return logEntry;
     }
 

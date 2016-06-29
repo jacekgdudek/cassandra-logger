@@ -39,14 +39,12 @@ rm -f ${cassandra_triggers_dir}/${jar_file}
 echo "Copying new jar into ${cassandra_triggers_dir}..."
 cp ${gradle_build_dir}/${jar_file}  ${cassandra_triggers_dir}
 
-if [ ! -f ${cassandra_conf_dir}/${settings_file} ]; then
-    echo "Copying settings file ${settings_file} to ${cassandra_conf_dir}..."
-    cp config/${settings_file} ${cassandra_conf_dir}
-fi
+echo "Copying settings file ${settings_file} to ${cassandra_conf_dir}..."
+cp config/${settings_file} ${cassandra_conf_dir}
 
 echo "The trigger was successfully installed."
 
-user=`whoami`
+user="root"
 cassandra_pid=`pgrep -u ${user} -f cassandra || true`
 
 if [ ! -z "${cassandra_pid}" ]; then

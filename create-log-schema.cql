@@ -21,6 +21,6 @@ CREATE TABLE log (
     logged_table text,
     logged_key text,
     operation text,
-    updated_columns set<text>,
+    updated_columns map<text, text>,
     PRIMARY KEY ((logged_keyspace, logged_table, logged_key), time_uuid)
 ) WITH CLUSTERING ORDER BY (time_uuid DESC);

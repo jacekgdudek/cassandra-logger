@@ -10,7 +10,7 @@ public class LogEntry {
     private String loggedTable;
     private String loggedKey;
     private UUID timeUuid;
-    private Set<String> updatedColumns;
+    private Map<String, String> updatedColumns;
     private Operation operation;
 
     public String getLoggedKeyspace() {
@@ -53,19 +53,12 @@ public class LogEntry {
         this.timeUuid = timeUuid;
     }
 
-    public Set<String> getUpdatedColumns() {
+    public Map<String, String> getUpdatedColumns() {
         return updatedColumns;
     }
 
-    public void setUpdatedColumns(Set<String> updatedColumns) {
+    public void setUpdatedColumns(Map<String, String> updatedColumns) {
         this.updatedColumns = updatedColumns;
-    }
-    
-    public void addUpdatedColumn(String updatedColumn) {
-        if (this.updatedColumns == null) {
-            this.updatedColumns = new HashSet<>();
-        }
-        this.updatedColumns.add(updatedColumn);
     }
     
     public boolean isMeaningful() {

@@ -69,7 +69,6 @@ public class LogEntryStore extends AbstractCassandraStore {
         entity.setLoggedKeyspace(row.getString("logged_keyspace"));
         entity.setLoggedTable(row.getString("logged_table"));
         entity.setLoggedKey(row.getString("logged_key"));
-        entity.setUpdatedColumns(row.getSet("updated_columns", String.class));
         entity.setOperation(EnumUtils.getEnum(Operation.class, row.getString("operation")));
         return entity;
     }
