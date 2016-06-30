@@ -18,7 +18,7 @@ import java.util.Collections;
 
 @SuppressWarnings("UnusedDeclaration")
 public class LogTrigger implements ITrigger {
-    public static final String LOCALHOST = "localhost";
+    public static final String LOCALHOST = "127.0.0.1";
     
     private static final Logger logger = LoggerFactory.getLogger(LogTrigger.class);
 
