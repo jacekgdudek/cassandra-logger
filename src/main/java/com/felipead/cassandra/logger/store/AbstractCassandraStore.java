@@ -26,7 +26,9 @@ public class AbstractCassandraStore {
     }
 
     protected Session getSession() {
-        session = getCluster().connect();
+        if (session == null) {
+            session = getCluster().connect();
+        }
         return session;
     }
 
