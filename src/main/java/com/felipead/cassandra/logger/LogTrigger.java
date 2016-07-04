@@ -18,8 +18,8 @@ import java.util.Collections;
 
 @SuppressWarnings("UnusedDeclaration")
 public class LogTrigger implements ITrigger {
-    // public static final String LOCALHOST = "node-0.cassandra.mesos";
-    public static final String LOCALHOST = "localhost";
+    public static final String LOCALHOST = "node-0.cassandra.mesos";
+    // public static final String LOCALHOST = "localhost";
     
     private static final Logger logger = LoggerFactory.getLogger(LogTrigger.class);
 
